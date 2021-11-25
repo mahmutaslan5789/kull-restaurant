@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "546582034327",
+    "project_id": "kull-malta-android",
+    "storage_bucket": "kull-malta-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546582034327:android:8df24f4f604cdefc45f6d2",
+        "android_client_info": {
+          "package_name": "com.kull.malta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546582034327-tufn0f5ni935iqcp797savbp67tpmnhc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI9cd100gRG0A6rbRvluZeh9TXckHt7-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546582034327-tufn0f5ni935iqcp797savbp67tpmnhc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:546582034327:android:1d41acfeb56c8fd745f6d2",
+        "android_client_info": {
+          "package_name": "com.kull.malta_restaurant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "546582034327-dbtuu0icl4i298f2k625bkhehd8nb1fi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kull.malta_restaurant",
+            "certificate_hash": "52df69523c274516eb13be7db68129c3a82b1291"
+          }
+        },
+        {
+          "client_id": "546582034327-tufn0f5ni935iqcp797savbp67tpmnhc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI9cd100gRG0A6rbRvluZeh9TXckHt7-w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "546582034327-tufn0f5ni935iqcp797savbp67tpmnhc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

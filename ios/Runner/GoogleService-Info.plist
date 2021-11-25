@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>546582034327-al5km5i0p0goifcir32kib3b3nd0bq90.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.546582034327-al5km5i0p0goifcir32kib3b3nd0bq90</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>546582034327-cqf8e20rtueh58hsugtmmlianv7egp34.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC3WQsASvbyhIkwUV_un05WvTe6-akP6PE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>546582034327</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kull.maltarestaurant</string>
+	<key>PROJECT_ID</key>
+	<string>kull-malta-android</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kull-malta-android.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:546582034327:ios:f5e8ffd639d3145b45f6d2</string>
+</dict>
+</plist>
