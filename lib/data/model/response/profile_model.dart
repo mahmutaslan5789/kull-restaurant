@@ -1,3 +1,4 @@
+
 class ProfileModel {
   int id;
   String fName;
@@ -137,6 +138,7 @@ class Restaurant {
   bool foodSection;
   String availableTimeStarts;
   String availableTimeEnds;
+  String responseTime;
   double avgRating;
   int ratingCount;
   bool active;
@@ -180,7 +182,9 @@ class Restaurant {
         this.selfDeliverySystem,
         this.posSystem,
         this.deliveryCharge,
-        this.discount});
+        this.discount,
+        this.responseTime,
+      });
 
   Restaurant.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -205,6 +209,7 @@ class Restaurant {
     foodSection = json['food_section'];
     availableTimeStarts = json['available_time_starts'];
     availableTimeEnds = json['available_time_ends'];
+    responseTime = json['responseTime'];
     avgRating = json['avg_rating'].toDouble();
     ratingCount = json['rating_count '];
     active = json['active'];
@@ -241,6 +246,7 @@ class Restaurant {
     data['food_section'] = this.foodSection;
     data['available_time_starts'] = this.availableTimeStarts;
     data['available_time_ends'] = this.availableTimeEnds;
+    data['responseTime']= this.responseTime;
     data['avg_rating'] = this.avgRating;
     data['rating_count '] = this.ratingCount;
     data['active'] = this.active;

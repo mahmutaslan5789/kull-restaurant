@@ -1,4 +1,7 @@
 import 'dart:async';
+import 'dart:isolate';
+import 'dart:ui';
+import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
 import 'package:efood_multivendor_restaurant/controller/localization_controller.dart';
 import 'package:efood_multivendor_restaurant/controller/theme_controller.dart';
 import 'package:efood_multivendor_restaurant/helper/notification_helper.dart';
@@ -12,6 +15,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'helper/get_di.dart' as di;
 
@@ -22,7 +26,14 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Map<String, Map<String, String>> _languages = await di.init();
-
+  await AndroidAlarmManager.initialize();
+  const String isolateName = 'isolate';
+  final ReceivePort port = ReceivePort();
+  IsolateNameServer.registerPortWithName(
+    port.sendPort,
+    isolateName,
+  );
+  port.listen((data) async => await print("$data gelen dta"));
   int _orderID;
   try {
     if (GetPlatform.isMobile) {
@@ -34,14 +45,16 @@ Future<void> main() async {
       FirebaseMessaging.onBackgroundMessage(myBackgroundMessageHandler);
     }
   }catch(e) {}
-
   runApp(MyApp(languages: _languages, orderID: _orderID));
+
 }
+
 
 class MyApp extends StatelessWidget {
   final Map<String, Map<String, String>> languages;
   final int orderID;
   MyApp({@required this.languages, @required this.orderID});
+
 
   @override
   Widget build(BuildContext context) {

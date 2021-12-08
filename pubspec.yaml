@@ -1,7 +1,7 @@
 name: efood_multivendor_restaurant
 description: An application for multivendor ecommerce restaurant.
 publish_to: 'none'
-version: 1.0.1+1
+version: 1.0.2+2
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -37,6 +37,7 @@ dependencies:
   esc_pos_utils: ^1.0.0
 #  blue_thermal_printer: ^1.1.8
 #  bluetooth_print: ^3.0.1
+  android_alarm_manager_plus: ^2.0.3
 
 dev_dependencies:
   flutter_test:
