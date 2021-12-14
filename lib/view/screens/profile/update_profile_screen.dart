@@ -55,7 +55,7 @@ class UpdateProfileScreen extends StatelessWidget {
             Positioned(
               bottom: 0, right: 0, top: 0, left: 0,
               child: InkWell(
-                onTap: () => authController.pickImage(),
+               // onTap: () => authController.pickImage(),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.3), shape: BoxShape.circle,
