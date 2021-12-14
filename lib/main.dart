@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:isolate';
 import 'dart:ui';
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
@@ -27,7 +26,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   Map<String, Map<String, String>> _languages = await di.init();
-  if(Platform.isAndroid)
   await AndroidAlarmManager.initialize();
   const String isolateName = 'isolate';
   final ReceivePort port = ReceivePort();
