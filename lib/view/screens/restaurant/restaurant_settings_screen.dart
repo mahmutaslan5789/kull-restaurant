@@ -86,7 +86,7 @@ class _RestaurantSettingsScreenState extends State<RestaurantSettingsScreen> {
               Positioned(
                 bottom: 0, right: 0, top: 0, left: 0,
                 child: InkWell(
-                  onTap: () => restController.pickImage(true, false),
+                 // onTap: () => restController.pickImage(true, false),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.3), borderRadius: BorderRadius.circular(Dimensions.RADIUS_SMALL),
@@ -246,7 +246,7 @@ class _RestaurantSettingsScreenState extends State<RestaurantSettingsScreen> {
               Positioned(
                 bottom: 0, right: 0, top: 0, left: 0,
                 child: InkWell(
-                  onTap: () => restController.pickImage(false, false),
+                  //onTap: () => restController.pickImage(false, false),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.3), borderRadius: BorderRadius.circular(Dimensions.RADIUS_SMALL),
