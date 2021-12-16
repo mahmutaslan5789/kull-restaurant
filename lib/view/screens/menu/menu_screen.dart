@@ -12,11 +12,11 @@ class MenuScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<MenuModel> _menuList = [
       MenuModel(icon: '', title: 'profile'.tr, backgroundColor: Color(0xFF4389FF), route: RouteHelper.getProfileRoute()),
-      MenuModel(icon: Images.restaurant, title: 'restaurant'.tr, backgroundColor: Color(0xFFA9B9F1), route: RouteHelper.getRestaurantRoute()),
+    //  MenuModel(icon: Images.restaurant, title: 'restaurant'.tr, backgroundColor: Color(0xFFA9B9F1), route: RouteHelper.getRestaurantRoute()),
       MenuModel(icon: Images.dollar, title: 'wallet'.tr, backgroundColor: Color(0xFFF7BC7E), route: RouteHelper.getWalletRoute()),
       MenuModel(icon: Images.credit_card, title: 'bank_info'.tr, backgroundColor: Color(0xFF448AFF), route: RouteHelper.getBankInfoRoute()),
       //MenuModel(icon: Images.pos, title: 'pos'.tr, backgroundColor: Color(0xFF448AFF), route: RouteHelper.getPosRoute()),
-      MenuModel(
+    /*  MenuModel(
         icon: Images.add_food, title: 'add_food'.tr, backgroundColor: Color(0xFFFF8A80), route: RouteHelper.getProductRoute(0),
         isBlocked: !Get.find<AuthController>().profileModel.restaurants[0].foodSection,
       ),
@@ -26,7 +26,7 @@ class MenuScreen extends StatelessWidget {
       MenuModel(icon: Images.language, title: 'language'.tr, backgroundColor: Color(0xFF62889C), route: RouteHelper.getLanguageRoute('menu')),
       MenuModel(icon: Images.policy, title: 'privacy_policy'.tr, backgroundColor: Color(0xFF62889C), route: RouteHelper.getPrivacyRoute()),
       MenuModel(icon: Images.terms, title: 'terms_condition'.tr, backgroundColor: Color(0xFF62889C), route: RouteHelper.getTermsRoute()),
-      MenuModel(icon: Images.log_out, title: 'logout'.tr, backgroundColor: Color(0xFFFF4B55), route: ''),
+     */ MenuModel(icon: Images.log_out, title: 'logout'.tr, backgroundColor: Color(0xFFFF4B55), route: ''),
     ];
     if(Get.find<AuthController>().profileModel.restaurants[0].selfDeliverySystem == 1) {
       _menuList.insert(5, MenuModel(
