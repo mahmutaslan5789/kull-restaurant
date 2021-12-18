@@ -52,7 +52,7 @@ class UpdateProfileScreen extends StatelessWidget {
               height: 100, width: 100, fit: BoxFit.cover,
               imageErrorBuilder: (c, o, s) => Image.asset(Images.placeholder, height: 100, width: 100, fit: BoxFit.cover),
             )),
-            Positioned(
+           /* Positioned(
               bottom: 0, right: 0, top: 0, left: 0,
               child: InkWell(
                // onTap: () => authController.pickImage(),
@@ -71,7 +71,7 @@ class UpdateProfileScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
+            ),*/
           ])),
           mainWidget: Column(children: [
 
