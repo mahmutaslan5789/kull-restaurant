@@ -35,9 +35,9 @@ class HomeScreen extends StatelessWidget {
     var androidInitialize = AndroidInitializationSettings('notification_icon');
     var iOSInitialize = IOSInitializationSettings();
     var initializationsSettings =
-        InitializationSettings(android: androidInitialize, iOS: iOSInitialize);
+    InitializationSettings(android: androidInitialize, iOS: iOSInitialize);
     FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
-        FlutterLocalNotificationsPlugin();
+    FlutterLocalNotificationsPlugin();
     flutterLocalNotificationsPlugin.initialize(initializationsSettings);
     NotificationHelper.showBigTextNotification(
         "You have an order",
@@ -45,13 +45,28 @@ class HomeScreen extends StatelessWidget {
         "orderID",
         flutterLocalNotificationsPlugin);
   }
-
+  static void alarmC() {
+    var androidInitialize = AndroidInitializationSettings('notification_icon');
+    var iOSInitialize = IOSInitializationSettings();
+    var initializationsSettings =
+    InitializationSettings(android: androidInitialize, iOS: iOSInitialize);
+    FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+    flutterLocalNotificationsPlugin.initialize(initializationsSettings);
+    NotificationHelper.showBigTextNotification(
+        "Order Cooked",
+        "The order's cooking time has expired",
+        "orderID",
+        flutterLocalNotificationsPlugin);
+  }
   @override
   Widget build(BuildContext context) {
     _loadData();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).cardColor,
+        backgroundColor: Theme
+            .of(context)
+            .cardColor,
         leading: Padding(
           padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
           child: Image.asset(Images.logo, height: 30, width: 30),
@@ -66,33 +81,41 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: GetBuilder<NotificationController>(
                 builder: (notificationController) {
-              bool _hasNewNotification = false;
-              if (notificationController.notificationList != null) {
-                _hasNewNotification =
-                    notificationController.notificationList.length !=
-                        notificationController.getSeenNotificationCount();
-              }
-              return Stack(children: [
-                Icon(Icons.notifications,
-                    size: 25,
-                    color: Theme.of(context).textTheme.bodyText1.color),
-                _hasNewNotification
-                    ? Positioned(
+                  bool _hasNewNotification = false;
+                  if (notificationController.notificationList != null) {
+                    _hasNewNotification =
+                        notificationController.notificationList.length !=
+                            notificationController.getSeenNotificationCount();
+                  }
+                  return Stack(children: [
+                    Icon(Icons.notifications,
+                        size: 25,
+                        color: Theme
+                            .of(context)
+                            .textTheme
+                            .bodyText1
+                            .color),
+                    _hasNewNotification
+                        ? Positioned(
                         top: 0,
                         right: 0,
                         child: Container(
                           height: 10,
                           width: 10,
                           decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
+                            color: Theme
+                                .of(context)
+                                .primaryColor,
                             shape: BoxShape.circle,
                             border: Border.all(
-                                width: 1, color: Theme.of(context).cardColor),
+                                width: 1, color: Theme
+                                .of(context)
+                                .cardColor),
                           ),
                         ))
-                    : SizedBox(),
-              ]);
-            }),
+                        : SizedBox(),
+                  ]);
+                }),
             onPressed: () => Get.toNamed(RouteHelper.getNotificationRoute()),
           )
         ],
@@ -114,8 +137,10 @@ class HomeScreen extends StatelessWidget {
                   padding: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
                   decoration: BoxDecoration(
                     borderRadius:
-                        BorderRadius.circular(Dimensions.RADIUS_SMALL),
-                    color: Theme.of(context).cardColor,
+                    BorderRadius.circular(Dimensions.RADIUS_SMALL),
+                    color: Theme
+                        .of(context)
+                        .cardColor,
                     boxShadow: [
                       BoxShadow(
                           color: Colors.grey[Get.isDarkMode ? 700 : 200],
@@ -126,37 +151,39 @@ class HomeScreen extends StatelessWidget {
                   child: Row(children: [
                     Expanded(
                         child: Text(
-                      'restaurant_temporarily_closed'.tr,
-                      style: robotoMedium,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    )),
+                          'restaurant_temporarily_closed'.tr,
+                          style: robotoMedium,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        )),
                     authController.profileModel != null
                         ? Switch(
-                            value: !authController
-                                .profileModel.restaurants[0].active,
-                            activeColor: Theme.of(context).primaryColor,
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            onChanged: (bool isActive) {
-                              Get.dialog(ConfirmationDialog(
-                                icon: Images.warning,
-                                description: isActive
-                                    ? 'are_you_sure_to_close_restaurant'.tr
-                                    : 'are_you_sure_to_open_restaurant'.tr,
-                                onYesPressed: () {
-                                  Get.back();
-                                  authController.toggleRestaurantClosedStatus();
-                                },
-                              ));
-                            },
-                          )
+                      value: !authController
+                          .profileModel.restaurants[0].active,
+                      activeColor: Theme
+                          .of(context)
+                          .primaryColor,
+                      materialTapTargetSize:
+                      MaterialTapTargetSize.shrinkWrap,
+                      onChanged: (bool isActive) {
+                        Get.dialog(ConfirmationDialog(
+                          icon: Images.warning,
+                          description: isActive
+                              ? 'are_you_sure_to_close_restaurant'.tr
+                              : 'are_you_sure_to_open_restaurant'.tr,
+                          onYesPressed: () {
+                            Get.back();
+                            authController.toggleRestaurantClosedStatus();
+                          },
+                        ));
+                      },
+                    )
                         : Shimmer(
-                            duration: Duration(seconds: 2),
-                            child: Container(
-                                height: 30,
-                                width: 50,
-                                color: Colors.grey[300])),
+                        duration: Duration(seconds: 2),
+                        child: Container(
+                            height: 30,
+                            width: 50,
+                            color: Colors.grey[300])),
                   ]),
                 ),
                 SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
@@ -164,8 +191,10 @@ class HomeScreen extends StatelessWidget {
                   padding: EdgeInsets.all(Dimensions.PADDING_SIZE_LARGE),
                   decoration: BoxDecoration(
                     borderRadius:
-                        BorderRadius.circular(Dimensions.RADIUS_SMALL),
-                    color: Theme.of(context).primaryColor,
+                    BorderRadius.circular(Dimensions.RADIUS_SMALL),
+                    color: Theme
+                        .of(context)
+                        .primaryColor,
                   ),
                   child: Column(children: [
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -178,17 +207,21 @@ class HomeScreen extends StatelessWidget {
                               'today'.tr,
                               style: robotoMedium.copyWith(
                                   fontSize: Dimensions.FONT_SIZE_SMALL,
-                                  color: Theme.of(context).cardColor),
+                                  color: Theme
+                                      .of(context)
+                                      .cardColor),
                             ),
                             SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
                             Text(
                               authController.profileModel != null
                                   ? PriceConverter.convertPrice(
-                                      authController.profileModel.todaysEarning)
+                                  authController.profileModel.todaysEarning)
                                   : '0',
                               style: robotoBold.copyWith(
                                   fontSize: 24,
-                                  color: Theme.of(context).cardColor),
+                                  color: Theme
+                                      .of(context)
+                                      .cardColor),
                             ),
                           ]),
                     ]),
@@ -196,46 +229,56 @@ class HomeScreen extends StatelessWidget {
                     Row(children: [
                       Expanded(
                           child: Column(children: [
-                        Text(
-                          'this_week'.tr,
-                          style: robotoMedium.copyWith(
-                              fontSize: Dimensions.FONT_SIZE_SMALL,
-                              color: Theme.of(context).cardColor),
-                        ),
-                        SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
-                        Text(
-                          authController.profileModel != null
-                              ? PriceConverter.convertPrice(
+                            Text(
+                              'this_week'.tr,
+                              style: robotoMedium.copyWith(
+                                  fontSize: Dimensions.FONT_SIZE_SMALL,
+                                  color: Theme
+                                      .of(context)
+                                      .cardColor),
+                            ),
+                            SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
+                            Text(
+                              authController.profileModel != null
+                                  ? PriceConverter.convertPrice(
                                   authController.profileModel.thisWeekEarning)
-                              : '0',
-                          style: robotoMedium.copyWith(
-                              fontSize: Dimensions.FONT_SIZE_EXTRA_LARGE,
-                              color: Theme.of(context).cardColor),
-                        ),
-                      ])),
+                                  : '0',
+                              style: robotoMedium.copyWith(
+                                  fontSize: Dimensions.FONT_SIZE_EXTRA_LARGE,
+                                  color: Theme
+                                      .of(context)
+                                      .cardColor),
+                            ),
+                          ])),
                       Container(
                           height: 30,
                           width: 1,
-                          color: Theme.of(context).cardColor),
+                          color: Theme
+                              .of(context)
+                              .cardColor),
                       Expanded(
                           child: Column(children: [
-                        Text(
-                          'this_month'.tr,
-                          style: robotoMedium.copyWith(
-                              fontSize: Dimensions.FONT_SIZE_SMALL,
-                              color: Theme.of(context).cardColor),
-                        ),
-                        SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
-                        Text(
-                          authController.profileModel != null
-                              ? PriceConverter.convertPrice(
+                            Text(
+                              'this_month'.tr,
+                              style: robotoMedium.copyWith(
+                                  fontSize: Dimensions.FONT_SIZE_SMALL,
+                                  color: Theme
+                                      .of(context)
+                                      .cardColor),
+                            ),
+                            SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
+                            Text(
+                              authController.profileModel != null
+                                  ? PriceConverter.convertPrice(
                                   authController.profileModel.thisMonthEarning)
-                              : '0',
-                          style: robotoMedium.copyWith(
-                              fontSize: Dimensions.FONT_SIZE_EXTRA_LARGE,
-                              color: Theme.of(context).cardColor),
-                        ),
-                      ])),
+                                  : '0',
+                              style: robotoMedium.copyWith(
+                                  fontSize: Dimensions.FONT_SIZE_EXTRA_LARGE,
+                                  color: Theme
+                                      .of(context)
+                                      .cardColor),
+                            ),
+                          ])),
                     ]),
                   ]),
                 ),
@@ -252,93 +295,119 @@ class HomeScreen extends StatelessWidget {
               return Column(children: [
                 orderController.runningOrders != null
                     ? Container(
-                        height: 40,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Theme.of(context).disabledColor, width: 1),
-                          borderRadius:
-                              BorderRadius.circular(Dimensions.RADIUS_SMALL),
-                        ),
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: orderController.runningOrders.length,
-                          itemBuilder: (context, index) {
-                            if (orderController.runningOrders[index].status ==
-                                "pending") {
-                              orderController.runningOrders[index].orderList
-                                  .forEach((element) {
-                                AndroidAlarmManager.oneShot(
-                                  Duration(minutes: responseTime),
-                                  element.id,
-                                  alarm,
-                                  exact: true,
-                                  wakeup: true,
-                                );
-                              });
-                            }
-                            if (orderController.runningOrders[index].status ==
-                                "accepted") {
-                              orderController.runningOrders[index].orderList
-                                  .forEach((element) {
-                                AndroidAlarmManager.cancel(element.id);
-                              });
-                            }
-                            return OrderButton(
-                              title: orderController
-                                  .runningOrders[index].status.tr,
-                              index: index,
-                              orderController: orderController,
-                              fromHistory: false,
-                            );
-                          },
-                        ),
-                      )
+                  height: 40,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Theme
+                            .of(context)
+                            .disabledColor, width: 1),
+                    borderRadius:
+                    BorderRadius.circular(Dimensions.RADIUS_SMALL),
+                  ),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: orderController.runningOrders.length,
+                    itemBuilder: (context, index) {
+                      print("////////++++++++++++ :  ${orderController.runningOrders[index].status}");
+                      if (orderController.runningOrders[index].status ==
+                          "pending") {
+                        orderController.runningOrders[index].orderList
+                            .forEach((element) {
+                          print(
+                              "////////////// alarm kuruldu /////// 5 ///////////// id: ${element
+                                  .id}");
+                          AndroidAlarmManager.oneShot(
+                            Duration(minutes: 5),
+                            element.id,
+                            alarm,
+                            exact: true,
+                            wakeup: true,
+                          );
+                        });
+                      } else if (orderController.runningOrders[index].status ==
+                          "cooking") {
+                        orderController.runningOrders[index].orderList
+                            .forEach((element) {
+                          print(
+                              "////////////// alarm kuruldu /////// 5 ///////////// id: ${element
+                                  .id}");
+                          AndroidAlarmManager.oneShot(
+                            Duration(minutes: responseTime),
+                            element.id,
+                            alarmC,
+                            exact: true,
+                            wakeup: true,
+                          );
+                        });
+                      } else {
+                        orderController.runningOrders[index].orderList
+                            .forEach((element) {
+                          print(
+                              "////////////// alarm Kaldırıldı /////////////////// id: ${element
+                                  .id}");
+                          AndroidAlarmManager.cancel(element.id);
+                        });
+                      }
+                      return OrderButton(
+                        title: orderController
+                            .runningOrders[index].status.tr,
+                        index: index,
+                        orderController: orderController,
+                        fromHistory: false,
+                      );
+                    },
+                  ),
+                )
                     : SizedBox(),
                 orderController.runningOrders != null
                     ? InkWell(
-                        onTap: () => orderController.toggleCampaignOnly(),
-                        child: Row(children: [
-                          Checkbox(
-                            activeColor: Theme.of(context).primaryColor,
-                            value: orderController.campaignOnly,
-                            onChanged: (isActive) =>
-                                orderController.toggleCampaignOnly(),
-                          ),
-                          Text(
-                            'campaign_order'.tr,
-                            style: robotoRegular.copyWith(
-                                fontSize: Dimensions.FONT_SIZE_SMALL,
-                                color: Theme.of(context).disabledColor),
-                          ),
-                        ]),
-                      )
+                  onTap: () => orderController.toggleCampaignOnly(),
+                  child: Row(children: [
+                    Checkbox(
+                      activeColor: Theme
+                          .of(context)
+                          .primaryColor,
+                      value: orderController.campaignOnly,
+                      onChanged: (isActive) =>
+                          orderController.toggleCampaignOnly(),
+                    ),
+                    Text(
+                      'campaign_order'.tr,
+                      style: robotoRegular.copyWith(
+                          fontSize: Dimensions.FONT_SIZE_SMALL,
+                          color: Theme
+                              .of(context)
+                              .disabledColor),
+                    ),
+                  ]),
+                )
                     : SizedBox(),
                 orderController.runningOrders != null
                     ? _orderList.length > 0
-                        ? ListView.builder(
-                            physics: NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: _orderList.length,
-                            itemBuilder: (context, index) {
-                              return OrderWidget(
-                                  orderModel: _orderList[index],
-                                  hasDivider: index != _orderList.length - 1,
-                                  isRunning: true);
-                            },
-                          )
-                        : Padding(
-                            padding: EdgeInsets.only(top: 50),
-                            child: Center(child: Text('no_order_found'.tr)),
-                          )
+                    ? ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: _orderList.length,
+                  itemBuilder: (context, index) {
+                    return OrderWidget(
+                        orderModel: _orderList[index],
+                        hasDivider: index != _orderList.length - 1,
+                        isRunning: true);
+                  },
+                )
+                    : Padding(
+                  padding: EdgeInsets.only(top: 50),
+                  child: Center(child: Text('no_order_found'.tr)),
+                )
                     : ListView.builder(
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: 10,
-                        itemBuilder: (context, index) {
-                          return OrderShimmer(
-                              isEnabled: orderController.runningOrders == null);
-                        },
-                      ),
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return OrderShimmer(
+                        isEnabled: orderController.runningOrders == null);
+                  },
+                ),
               ]);
             }),
           ]),
